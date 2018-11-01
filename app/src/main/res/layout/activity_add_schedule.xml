@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <DatePicker
+        android:id="@+id/add_schedule_datepicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:calendarViewShown="false"
+        />
+
+    <EditText
+        android:id="@+id/add_schedule_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="8pt"
+        android:textAlignment="center"
+        android:maxLength="30"
+        android:hint="내용을 입력하세요"
+        />
+
+    <Button
+        android:id="@+id/add_schedule_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:hint="일정 추가"
+        />
+
+</LinearLayout>
