@@ -58,22 +58,7 @@ public class MonthlyFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_monthly,container,false);
-//        ArrayList<String> items = new ArrayList<String>();
-//        items.add("helloworld!");
-//        items.add("another");
-//        ArrayAdapter adapter
-//                = new ArrayAdapter(getActivity(),android.R.layout.simple_list_item_single_choice,items);
-//
-//
-//        listView = (ListView)view.findViewById(R.id.monthly_lv);
-//        listView.setAdapter(adapter);
-//
-//        adapter.notifyDataSetChanged();
 
-
-
-
-//inflater.inflate(R.layout.fragment_monthly, container, false);
         return view;
     }
 
@@ -104,40 +89,6 @@ public class MonthlyFragment extends Fragment {
         EventDecorator eventDecorator = new EventDecorator(Color.RED,collection);
         calendarView.addDecorator(eventDecorator);
 
-
-//        calendarView.setOnDateChangedListener(new OnDateSelectedListener() {
-//            @Override
-//            public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
-//                String day;
-//                if(date.getDay()<10)
-//                    day="0"+date.getDay();
-//                else
-//                    day=""+date.getDay();
-//                String new_date = date.getYear()+"-"+(date.getMonth()+1)+"-"+day;
-//                DBHelper dbHelper = new DBHelper(getContext(),DBHelper.DATABASE_NAME,null,DBHelper.DATABASE_VERSION);
-//                String getMessage = dbHelper.read(new_date);
-//                ArrayList<String> items = new ArrayList<String>();
-//
-//
-//                if(getMessage.isEmpty()){
-//                    items.add("스케줄이 없습니다");
-//                }else {
-//                    String[] imsi = getMessage.split("///");
-//                    for (String item : imsi) {
-//                        items.add(item);
-//                    }
-//                }
-//
-//                ArrayAdapter adapter
-//                        = new ArrayAdapter(getActivity(),android.R.layout.simple_list_item_single_choice,items);
-//
-//                listView = (ListView)getView().findViewById(R.id.monthly_lv);
-//                listView.setAdapter(adapter);
-//
-//                adapter.notifyDataSetChanged();
-//
-//            }
-//        });
 
 
 
