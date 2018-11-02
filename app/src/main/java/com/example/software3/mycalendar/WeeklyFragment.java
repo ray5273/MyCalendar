@@ -1,10 +1,12 @@
 package com.example.software3.mycalendar;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -100,21 +102,23 @@ public class WeeklyFragment extends Fragment {
 
         Map<Integer,CalendarDay> map = new HashMap<Integer, CalendarDay>();
 
-        String[] imsi = dates.split("///");
-        int index=0;
-        for (String item : imsi) {
-            String[] date_split = item.split("-");
-            Log.e("dates",date_split[0]+date_split[1]+date_split[2]);
-            CalendarDay test = CalendarDay.from(Integer.parseInt(date_split[0]),Integer.parseInt(date_split[1])-1,
-                    Integer.parseInt(date_split[2]));
-            map.put(index++,test);
+        if(!dates.isEmpty()) {
+            String[] imsi = dates.split("///");
+            int index = 0;
+            for (String item : imsi) {
+                String[] date_split = item.split("-");
+                Log.e("dates", date_split[0] + date_split[1] + date_split[2]);
+                CalendarDay test = CalendarDay.from(Integer.parseInt(date_split[0]), Integer.parseInt(date_split[1]) - 1,
+                        Integer.parseInt(date_split[2]));
+                map.put(index++, test);
+            }
+
+            Collection<CalendarDay> collection = map.values();
+            EventDecorator eventDecorator = new EventDecorator(Color.RED, collection);
+
+
+            calendarView.addDecorator(eventDecorator);
         }
-
-        Collection<CalendarDay> collection = map.values();
-       EventDecorator eventDecorator = new EventDecorator(Color.RED,collection);
-
-
-        calendarView.addDecorator(eventDecorator);
         calendarView.setOnDateChangedListener(new OnDateSelectedListener() {
             @Override
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
@@ -160,15 +164,11 @@ public class WeeklyFragment extends Fragment {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
 
-
-
-
-
-
-
-
-
+    }
 
 
     public class EventDecorator implements DayViewDecorator {

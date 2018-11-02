@@ -24,6 +24,9 @@ public class addSchedule extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_schedule);
         final DBHelper dbHelper = new DBHelper(getApplicationContext(),DBHelper.DATABASE_NAME,null,DBHelper.DATABASE_VERSION);
+        Intent intent = getIntent();
+        final int curpos = Integer.parseInt(intent.getStringExtra("pos"));
+
         datePicker = (DatePicker)findViewById(R.id.add_schedule_datepicker);
         editText = (EditText)findViewById(R.id.add_schedule_text);
         button = (Button)findViewById(R.id.add_schedule_button);
@@ -53,7 +56,9 @@ public class addSchedule extends AppCompatActivity{
                 dbHelper.insert(date,content);
                 finish();
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                intent.putExtra("pos",""+curpos);
                 startActivity(intent);
+
             }
         });
     }
